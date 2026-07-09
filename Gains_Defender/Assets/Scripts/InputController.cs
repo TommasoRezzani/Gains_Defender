@@ -47,8 +47,8 @@ public class InputController : MonoBehaviour
             
             if (eEnemy != null)
             {
-                Destroy(rHit.collider.gameObject);
-                Debug.Log("Nemico intercettato e rimosso!");
+                eEnemy.OnDefeated(); 
+                Debug.Log("Nemico intercettato e rimosso con successo!");
             }
         }
     }
