@@ -21,26 +21,32 @@ public class GameController : MonoBehaviour
         if (gInstructionText != null) gInstructionText.SetActive(false);
     }
 
+    public EnemySpawner eSpawner;
+
     void Start()
     {
         InitController();
     }
 
     public void StartGameSequence()
+{
+    bIsGameActive = true;
+    
+    if (gBackgroundPanel != null) gBackgroundPanel.SetActive(false);
+    if (gTitleText != null) gTitleText.SetActive(false);
+    if (gStartButton != null) gStartButton.SetActive(false);
+    
+    if (gInstructionText != null) 
     {
-        bIsGameActive = true;
-
-        if (gBackgroundPanel != null) gBackgroundPanel.SetActive(false);
-        if (gTitleText != null) gTitleText.SetActive(false);
-        if (gStartButton != null) gStartButton.SetActive(false);
-        
-        // Mostra le istruzioni e avvia il timer
-        if (gInstructionText != null) 
-        {
-            gInstructionText.SetActive(true);
-            cHideTextCoroutine = StartCoroutine(HideInstructionsRoutine());
-        }
+        gInstructionText.SetActive(true);
+        cHideTextCoroutine = StartCoroutine(HideInstructionsRoutine());
     }
+
+    if (eSpawner != null)
+    {
+        eSpawner.StartSpawning();
+    }
+}
 
     private IEnumerator HideInstructionsRoutine()
     {

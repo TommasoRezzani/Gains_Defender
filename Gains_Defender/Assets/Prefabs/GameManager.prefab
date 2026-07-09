@@ -49,3 +49,4 @@ MonoBehaviour:
   gStartButton: {fileID: 0}
   gInstructionText: {fileID: 0}
   fInstructionDuration: 5
+  eSpawner: {fileID: 0}
